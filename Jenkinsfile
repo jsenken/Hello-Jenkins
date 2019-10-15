@@ -8,7 +8,7 @@ pipeline {
                 dir("${env.WORKSPACE}/rsvp-service"){
                     sh 'pwd'
                         
-              # sh 'cd ./rsvp-service'
+             // sh 'cd ./rsvp-service'
                     sh './mvn -DskipTests clean compile' }
             }
         }
@@ -17,7 +17,7 @@ pipeline {
             steps {
               dir("${env.WORKSPACE}/rsvp-service"){
               sh 'pwd'
-              # sh 'cd rsvp-service'
+              // sh 'cd rsvp-service'
                   sh './mvn test' }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
               dir("${env.WORKSPACE}/rsvp-service"){
                sh 'pwd'
-              # sh 'cd rsvp-service'
+              // sh 'cd rsvp-service'
                   sh './mvn -DskipTests install' }
             }
         }
