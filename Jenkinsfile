@@ -5,31 +5,29 @@ pipeline {
 
         stage('build') {
             steps {
-              sh '''
-                 chmod 777 rsvp-service
-                 cd ./rsvp-service
-                 ./mvnw -DskipTests clean compile
-              '''
+                dir("${env.WORKSPACE}/rsvp-service"){
+                    sh 'pwd'
+                        
+              sh 'cd ./rsvp-service'
+                    sh './mvnw -DskipTests clean compile' }
             }
         }
 
         stage('test') {
             steps {
-              sh '''
-                 chmod 777 rsvp-service
-                 cd rsvp-service
-                     ./mvnw test
-              '''
+              dir("${env.WORKSPACE}/rsvp-service"){
+              sh 'pwd'
+              sh 'cd rsvp-service'
+                  sh './mvnw test' }
             }
         }
 
         stage('deliver') {
             steps {
-              sh '''
-                 chmod 777 rsvp-service
-                 cd rsvp-service
-                     ./mvnw -DskipTests install
-              '''
+              dir("${env.WORKSPACE}/rsvp-service"){
+               sh 'pwd'
+              sh 'cd rsvp-service'
+                  sh './mvnw -DskipTests install' }
             }
         }
 
