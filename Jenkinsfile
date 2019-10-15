@@ -6,7 +6,10 @@ pipeline {
         stage('build') {
             steps {
                 dir("${env.WORKSPACE}/rsvp-service"){
-                    sh 'chmod 777 ./rsvp-service'
+                    sh 'cd ..'
+                    sh 'pwd'
+                    sh 'chmod 777 rsvp-service'
+                    sh 'cd rsvp-service'
                     sh 'pwd'
                         
                     // sh 'cd ./rsvp-service'
@@ -18,7 +21,10 @@ pipeline {
         stage('test') {
             steps {
               dir("${env.WORKSPACE}/rsvp-service"){
-                    sh 'chmod 777 ./rsvp-service'
+                    sh 'cd ..'
+                    sh 'pwd'
+                    sh 'chmod 777 rsvp-service'
+                    sh 'cd rsvp-service'
                     sh 'pwd'
                     // sh 'cd rsvp-service'
                     sh './mvnw test' 
@@ -29,7 +35,10 @@ pipeline {
         stage('deliver') {
             steps {
               dir("${env.WORKSPACE}/rsvp-service"){
-                    sh 'chmod 777 ./rsvp-service'
+                    sh 'cd ..'
+                    sh 'pwd'
+                    sh 'chmod 777 rsvp-service'
+                    sh 'cd rsvp-service'
                     sh 'pwd'
                     // sh 'cd rsvp-service'
                     sh './mvnw -DskipTests install' 
