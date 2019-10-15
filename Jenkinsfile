@@ -14,7 +14,7 @@ pipeline {
                     
                         
                     // sh 'cd ./rsvp-service'
-                    sh './mvnw -DskipTests clean compile' 
+                    sh 'sudo ./mvnw -DskipTests clean compile' 
                 }
             }
         }
@@ -29,7 +29,7 @@ pipeline {
               dir("${env.WORKSPACE}/rsvp-service"){
                     
                     // sh 'cd rsvp-service'
-                    sh './mvnw test' 
+                    sh 'sudo ./mvnw test' 
               }
             }
         }
@@ -44,7 +44,7 @@ pipeline {
               dir("${env.WORKSPACE}/rsvp-service"){
                     
                     // sh 'cd rsvp-service'
-                    sh './mvnw -DskipTests install' 
+                    sh 'sudo ./mvnw -DskipTests install' 
               }
             }
         }
